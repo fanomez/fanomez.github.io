@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Configurateur</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>ESP32 Notebook Interface</h1>
+
+    <!-- Onglets -->
+    <div class="tabs">
+        <button class="tab-button active" onclick="openTab('mesures', event)">Mesures</button>
+        <button class="tab-button" onclick="openTab('commandes', event)">Commandes</button>
+        <button class="tab-button" onclick="openTab('offset', event)">Offset</button>
+        <button class="tab-button" onclick="openTab('configuration', event)">Configuration</button>
+        <button class="tab-button" onclick="openTab('xport', event)">XPORT</button>
+        <button class="tab-button" onclick="openTab('horodatage', event)">Horodatage</button>
+        <button class="tab-button" onclick="openTab('debug', event)">Debug</button>
+    </div>
+
+    <!-- Contenu des onglets -->
+
+    <div class="tab-content" id="mesures">
+        <p>Température : <span id="temp">--</span> °C</p>
+        <p>Humidité : <span id="hum">--</span> %</p>
+    </div>
+
+    <div class="tab-content" id="commandes" style="display:none;">
+        <button onclick="toggleLED()">Allumer/Éteindre LED</button>
+        <p>État LED : <span id="ledState">OFF</span></p>
+    </div>
+
+    <div class="tab-content" id="offset" style="display:none;">
+        <h3>Offset et Gain des mesures</h3>
+        <div id="mesuresForm"></div>
+        <button onclick="submitOffsets()">Envoyer</button>
+        <p id="offsetMessage"></p>
+    </div>
+
+    <div class="tab-content" id="configuration" style="display:none;">
+        <p>Paramètres de configuration</p>
+        <!-- Ajoute tes champs ici -->
+    </div>
+
+    <div class="tab-content" id="xport" style="display:none;">
+        <p>Export des données</p>
+    </div>
+
+    <div class="tab-content" id="horodatage" style="display:none;">
+        <p>Horodatage actuel : <span id="timestamp">--</span></p>
+    </div>
+
+    <div class="tab-content" id="debug" style="display:none;">
+        <p>Messages de debug :</p>
+        <pre id="debugMessages"></pre>
+    </div>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+</body>
+</html>
