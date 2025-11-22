@@ -33,7 +33,12 @@
 
     <div class="tab-content" id="offset" style="display:none;">
         <h3>Offset et Gain des mesures</h3>
-        <div id="mesuresForm"></div>
+        <div id="mesuresForm">
+            <h4>Mesure 1 </h4>
+            <label>Gain: <input id="MESURE_1_gain" type="number" value="1"></label><br>
+            <label>Offset: <input id="MESURE_1_offset" type="number" value="0"></label><br>
+            <label>Type: <input id="MESURE_1_dyn" type="text" value="normal"></label><br><br>
+        </div>
         <button onclick="submitOffsets()">Envoyer</button>
         <p id="offsetMessage"></p>
     </div>

@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // -------------------------------------------------------------------------
     // Création dynamique du formulaire Offset
     // -------------------------------------------------------------------------
-    const mesuresForm = document.getElementById('mesuresForm');
+   /* const mesuresForm = document.getElementById('mesuresForm');
     for(let i=1;i<=6;i++){
         const div = document.createElement('div');
         div.innerHTML = `
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <label>Type: <input id="MESURE_${i}_dyn" type="text" value="normal"></label><br><br>
         `;
         mesuresForm.appendChild(div);
-    }
+    }*/
 
     window.openTab = openTab; // Rendre la fonction accessible depuis HTMLs
 
