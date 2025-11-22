@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    // -----------------------------
-    // Gestion des onglets
-    // -----------------------------
+    // -----------------------------------------------------------------------
+    // Fonction permettant la gestion des onglets
+    // -----------------------------------------------------------------------
     function openTab(tabId, evt) {
+
+        // Tab content défini dans html 
         const tabs = document.getElementsByClassName('tab-content');
         for (let t of tabs) t.style.display = 'none';
 
@@ -14,11 +16,11 @@ document.addEventListener("DOMContentLoaded", function() {
         if(evt) evt.currentTarget.classList.add('active');
     }
 
-    window.openTab = openTab; // Rendre la fonction accessible depuis HTML
 
-    // -----------------------------
+
+    // -------------------------------------------------------------------------
     // Création dynamique du formulaire Offset
-    // -----------------------------
+    // -------------------------------------------------------------------------
     const mesuresForm = document.getElementById('mesuresForm');
     for(let i=1;i<=6;i++){
         const div = document.createElement('div');
@@ -30,6 +32,10 @@ document.addEventListener("DOMContentLoaded", function() {
         `;
         mesuresForm.appendChild(div);
     }
+
+    window.openTab = openTab; // Rendre la fonction accessible depuis HTMLs
+
+    
 
     // -----------------------------
     // Données simulées
