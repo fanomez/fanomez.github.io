@@ -1,21 +1,36 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    function openTab(tabId, evt) {
-        const tabs = document.querySelectorAll(".tab-content");
-        tabs.forEach(t => t.style.display = "none");
+    function openTab(tabId) {
+        // Masquer tous les onglets
+        document.querySelectorAll(".tab-content")
+            .forEach(t => t.style.display = "none");
 
-        const buttons = document.querySelectorAll(".tab-button");
-        buttons.forEach(b => b.classList.remove("active"));
+        // Désactiver tous les boutons
+        document.querySelectorAll(".tab-button")
+            .forEach(b => b.classList.remove("active"));
 
+        // Afficher l'onglet demandé
         document.getElementById(tabId).style.display = "block";
-        if (evt) evt.currentTarget.classList.add("active");
+
+        // Activer le bouton correspondant
+        document.querySelector(`.tab-button[data-tab="${tabId}"]`)
+            .classList.add("active");
     }
 
+    // Rendre accessible si tu veux encore l'appeler ailleurs
     window.openTab = openTab;
 
-    // Lance les modules au chargement
+    // Ajouter l'écouteur sur tous les boutons
+    document.querySelectorAll(".tab-button").forEach(button => {
+        button.addEventListener("click", () => {
+            openTab(button.dataset.tab);
+        });
+    });
+
+    // Onglet par défaut
+    openTab("mesures");
+
+    // Modules
     if (window.initMesures) window.initMesures();
     if (window.initOffsetForm) window.initOffsetForm();
 });
-
-
