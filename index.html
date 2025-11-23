@@ -6,9 +6,9 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>ESP32 Notebook Interface</h1>
+    <h1> SDP-CP V2 _ Configurateur </h1>
 
-    <!-- Onglets -->
+    <!------------------------------- Onglets -------------------------------------------------------->
     <div class="tabs">
         <button class="tab-button active" onclick="openTab('mesures', event)">Mesures</button>
         <button class="tab-button" onclick="openTab('commandes', event)">Commandes</button>
@@ -19,11 +19,22 @@
         <button class="tab-button" onclick="openTab('debug', event)">Debug</button>
     </div>
 
-    <!-- Contenu des onglets -->
-
+    <!--------------------------------- Contenu des onglets ------------------------------------------>
     <div class="tab-content" id="mesures">
-        <p>Température : <span id="temp">--</span> °C</p>
-        <p>Humidité : <span id="hum">--</span> %</p>
+
+        <button type="button" class="collapsible">Mesure 1</button>
+        <div class="card">
+            <p>I eff: <span id="I_eff">--</span> A </p>
+            <p>I crête : <span id="I_crete">--</span> A </p>
+            <p>I moy: <span id="I_moy">--</span> A </p>
+            <p>U min : <span id="U_min">--</span> mV </p>
+            <p>u max: <span id="U_max">--</span> mV </p>
+
+        </div>
+
+          
+          
+
     </div>
 
     <div class="tab-content" id="commandes" style="display:none;">
@@ -32,15 +43,13 @@
     </div>
 
     <div class="tab-content" id="offset" style="display:none;">
-        <h3>Offset et Gain des mesures</h3>
-        <div id="mesuresForm">
-            <h4>Mesure 1 </h4>
-            <label>Gain: <input id="MESURE_1_gain" type="number" value="1"></label><br>
-            <label>Offset: <input id="MESURE_1_offset" type="number" value="0"></label><br>
-            <label>Type: <input id="MESURE_1_dyn" type="text" value="normal"></label><br><br>
-        </div>
+
+
+        <div id="mesuresForm"> </div>
+
         <button onclick="submitOffsets()">Envoyer</button>
-        <p id="offsetMessage"></p>
+
+           
     </div>
 
     <div class="tab-content" id="configuration" style="display:none;">
@@ -51,14 +60,18 @@
     <div class="tab-content" id="xport" style="display:none;">
         <p>Export des données</p>
     </div>
-
     <div class="tab-content" id="horodatage" style="display:none;">
         <p>Horodatage actuel : <span id="timestamp">--</span></p>
     </div>
 
     <div class="tab-content" id="debug" style="display:none;">
         <p>Messages de debug :</p>
+        <p class="info"><span class="icon">🌡️</span> Température : <span id="temp">--</span> °C</p>
+        <p class="info"><span class="icon">💧</span> Humidité : <span id="hum">--</span> %</p> 
+
         <pre id="debugMessages"></pre>
+
+
     </div>
 
     <!-- JS -->
